@@ -1,0 +1,14 @@
+python_image_docker:
+  build: .
+  ports:
+    - "5000:5000"
+  links:
+    - mongo_image_docker
+mongo_image_docker:
+  image: mongo
+  ports:
+    - 27017:27017
+  hostname: user_host
+  environment:
+    - MONGO_INITDB_ROOT_USERNAME=gabriel
+    - MONGO_INITDB_ROOT_PASSWORD=0000
